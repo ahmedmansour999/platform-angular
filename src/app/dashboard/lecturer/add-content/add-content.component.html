@@ -1,0 +1,126 @@
+
+
+<section >
+
+
+
+<form action="" (ngSubmit)="handleSubmitForm()" [formGroup]="loginForm" method="post" >
+
+
+  <div class="container user-role text-center">
+    <input type="hidden" [value]="courseId" formControlName="course_id" >
+    <h1>Add Content</h1>
+
+
+    <mat-button-toggle-group name="content_type"  class="role border border-none text-center pb-2"  formControlName="content_type">
+      <mat-button-toggle value="lecture">lecture</mat-button-toggle>
+      <mat-button-toggle value="video">video</mat-button-toggle>
+    </mat-button-toggle-group>
+    @if (loginForm.get('content_type')?.hasError('required')) {
+      <mat-error><strong>required</strong></mat-error>
+    }
+
+    @if(loginForm.get('content_type')?.value !== null){}
+    @if (loginForm.get('content_type')?.value == 'video' ){
+      <mat-form-field class="w-100">
+        <mat-label>video</mat-label>
+        <mat-select formControlName="vedio_id" class="w-100" [errorStateMatcher]="matcher">
+          @for(vedio of vedios ; track vedio.id ){
+            <mat-option [value]="vedio.id" >
+              <div class="row">
+                <div class="col-2">
+                  <video controls width="100%"  >
+                    <source [src]="'http://127.0.0.1:8000/storage/vedio/' + vedio.vedio"  width="100%" type="video/mp4">
+                  </video>
+                </div>
+                <span class="col-4 col-md-6">{{vedio.title}}</span>
+              </div>
+            </mat-option>
+          }
+        </mat-select>
+
+        @if (loginForm.get('vedio_id')?.hasError('required')) {
+          <mat-error>video is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+
+    }@else if(loginForm.get('content_type')?.value == 'lecture' ){
+      <mat-form-field class="w-100">
+        <mat-label>Lecture</mat-label>
+        <mat-select formControlName="lecture_id" class="w-100" [errorStateMatcher]="matcher">
+          @for(lecture of lectures ; track lecture.id ){
+            <mat-option [value]="lecture.id" >
+              <div class="row">
+                <div class="col-2">
+                  <mat-card style="max-height: 13vh;" >
+                    <mat-card-content class="matCard-pdf">
+                      <div>
+                        <img class="pdfImage" src="https://play-lh.googleusercontent.com/9XKD5S7rwQ6FiPXSyp9SzLXfIue88ntf9sJ9K250IuHTL7pmn2-ZB0sngAX4A2Bw4w=w240-h480-rw" width="100%" style="object-fit: contain;"  alt="">
+                      </div>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+                <span class="col-4 col-md-6">{{lecture.title}}</span>
+              </div>
+            </mat-option>
+          }
+        </mat-select>
+
+        @if (loginForm.get('lecture_id')?.hasError('required')) {
+          <mat-error>lecture is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+    }
+
+      <mat-form-field class="w-100">
+        <mat-label>select position after/</mat-label>
+
+        <mat-select formControlName="order" class="w-100" [errorStateMatcher]="matcher">
+          <mat-option [value]="1" > <i class="fas fa-plus"></i> in the top </mat-option>
+
+          @for(content of courseContent ; track content.id ){
+            @if( content.content_type == 'video' ){
+                <mat-option [value]="content.order+1" >
+                  <div class="row selectHover ">
+                    <div class="col-2">
+                      <video controls width="100%"  >
+                        <source [src]="'http://127.0.0.1:8000/storage/vedio/' + content.vedio.vedio"  width="100%" type="video/mp4">
+                      </video>
+                    </div>
+                    <span class="col-4 col-md-6">{{content.vedio?.title}}</span>
+                  </div>
+                </mat-option>
+
+            }
+            @else if( content.content_type == 'lecture' ){
+              <mat-option [value]="content.order+1" >
+                <div class="row my-2 selectHover">
+                  <div class="col-2 " style="max-height: 13vh;">
+                    <mat-card style="max-height: 13vh;" >
+                      <mat-card-content class="matCard-pdf">
+                        <div>
+                          <img class="pdfImage" src="https://play-lh.googleusercontent.com/9XKD5S7rwQ6FiPXSyp9SzLXfIue88ntf9sJ9K250IuHTL7pmn2-ZB0sngAX4A2Bw4w=w240-h480-rw" width="100%" style="object-fit: contain;"  alt="">
+                        </div>
+                      </mat-card-content>
+                    </mat-card>
+                  </div>
+                  <span class="col-4 col-md-6">{{content.lecture?.title}}</span>
+
+                </div>
+              </mat-option>
+            }
+          }
+        </mat-select>
+
+        @if (loginForm.get('vedio_id')?.hasError('required')) {
+          <mat-error>video is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+
+  </div>
+
+  <button type="submit" class="btn btn-warning m-3  " > add </button>
+
+</form>
+
+</section>

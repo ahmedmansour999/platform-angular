@@ -1,0 +1,49 @@
+<section>
+  <!-- sidemenu Container -->
+  <div class="sidemenuContainer">
+    <ul>
+
+      <li routerLink="/admin/home" >
+        <i class="fa-solid fa-house"></i>
+        <p class="list_title" >Home</p>
+      </li>
+      <li routerLink="/admin/lecturer" >
+        <i class="fa-solid fa-user-graduate"></i>
+        <p class="list_title" >Lecturer</p>
+      </li>
+      <li routerLink="/admin/student" >
+        <i class="fa-solid fa-users"></i>
+        <p class="list_title" >Students</p>
+      </li>
+      <li routerLink="/admin/admin" >
+        <i class="fa-solid fa-chess-king"></i>
+        <p class="list_title" >admins</p>
+      </li>
+      <li routerLink="/admin/vedio" >
+        <i class="fa-solid fa-video"></i>
+        <p class="list_title" >Videos</p>
+      </li>
+      <li routerLink="/admin/lecture" >
+        <i class="fa-solid fa-file"></i>
+        <p class="list_title" >Lectures</p>
+      </li>
+      <li routerLink="/admin/course" >
+        <i class="fa-solid fa-folder-open"></i>
+        <p class="list_title" >Courses</p>
+      </li>
+
+      <li routerLink="/admin/setting" >
+        <i class="fa-solid fa-gear"></i>
+        <p class="list_title" >Setting</p>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="rightSide">
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+</section>

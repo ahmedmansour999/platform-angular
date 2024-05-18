@@ -1,0 +1,14 @@
+.container-text
+{
+  background-image: url('../../../assets/graph2.png');
+  background-position: center center;
+  background-clip: border-box;
+  height: 70vh;
+  background-repeat: no-repeat;
+  line-height: 30px;
+}
+
+.container-img vedio
+{
+  border:  5px solid #00000094  ;
+}

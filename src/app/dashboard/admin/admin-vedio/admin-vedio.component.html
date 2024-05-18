@@ -1,0 +1,27 @@
+<section>
+  <div class="title">
+    <p>#Videos</p>
+  </div>
+</section>
+
+
+<div class="container">
+
+  <div class="row">
+  @for( vedio of vedios ; track vedio.id ){
+
+      <div class="col-6 col-md-4 col-lg-3 ">
+        <div class="card">
+          <div class="card-head">
+            <video width="100%" controls  height="100%" > <source [src]="'http://127.0.0.1:8000/storage/vedio/' + vedio.vedio"></video>
+          </div>
+          <div class="card-body">
+            <h1 class="m-0 fw-bold" >{{ vedio.title }}</h1>
+            <p class="m-0" >Added By : {{ vedio.lecturer.user.name }}</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+</div>

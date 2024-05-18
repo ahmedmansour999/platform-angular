@@ -1,0 +1,29 @@
+
+
+/* section
+{
+  position: relative;
+  height: 80vh !important;
+}
+.svg
+{
+  position: absolute;
+  left: 30%;
+  top: 80%;
+  transform: translate(-50% , -50%);
+}
+.container
+{
+  position: absolute;
+  left: 25%;
+  top: 80%;
+  transform: translate(-50% , -50%);
+} */
+.container-text
+{
+  background-image: url('../../../assets/graph2.png');
+  background-position: center center;
+  background-clip: border-box;
+  height: 70vh;
+  background-repeat: no-repeat;
+}

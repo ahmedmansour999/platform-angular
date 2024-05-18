@@ -1,0 +1,162 @@
+
+
+<section >
+
+  <h1 class="register pt-5">Register</h1>
+
+
+<form action="" [formGroup]="loginForm" (ngSubmit)="handleSubmitForm()" method="post" >
+
+
+
+  <div class="container user-role text-center">
+
+    <h1 class="text-center" >General Infomation</h1>
+
+    <mat-button-toggle-group name="role"  class="role border border-none text-center pb-2"  formControlName="roles">
+      <mat-button-toggle value="lecturer">lecturer</mat-button-toggle>
+      <mat-button-toggle value="student">student</mat-button-toggle>
+      <mat-button-toggle value="parent">parent</mat-button-toggle>
+    </mat-button-toggle-group>
+    @if (loginForm.get('roles')?.hasError('required')) {
+      <mat-error><strong>required</strong></mat-error>
+    }
+
+
+
+    <mat-form-field class="example-full-width">
+      <mat-label>name</mat-label>
+      <input type="text" matInput formControlName="name"  [errorStateMatcher]="matcher"
+             placeholder="Ex. Gamal Yasser">
+      @if (loginForm.get('name')?.hasError('pattern')  && !loginForm.get('name')?.hasError('required')) {
+        <mat-error class="text-nowrap" >Please enter a valid name "Ex. Gamal Yasser"</mat-error>
+      }
+      @if (loginForm.get('name')?.hasError('required')) {
+        <mat-error>Name is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email"  [errorStateMatcher]="matcher"
+             placeholder="Ex. pat@example.com">
+      @if (loginForm.get('email')?.hasError('email') && !loginForm.get('email')?.hasError('required')) {
+        <mat-error>Please enter a valid email address</mat-error>
+      }
+      @if (loginForm.get('email')?.hasError('required')) {
+        <mat-error>Email is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>password</mat-label>
+      <input type="password" matInput formControlName="password"   [errorStateMatcher]="matcher" title="password" >
+      <mat-hint>Errors appear instantly!</mat-hint>
+      <!-- @if (loginForm.get('password')?.hasError('pattern') && !loginForm.get('password')?.hasError('required')) {
+        <mat-error>must be 6 char at Least one uppercase letter, one special char</mat-error>
+      } -->
+      @if (loginForm.get('password')?.hasError('required')) {
+        <mat-error>password is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <div class="mt-2">
+      <input type="file" formControlName="image" class="btn w-100 btn-outline-success" placeholder="Img" >
+    </div>
+
+
+
+    <div class="login mt-4">
+      <span>already have account </span>
+      <a routerLink="/login" > Login</a>
+    </div>
+  </div>
+
+  <div class="container  additional">
+    <h1>Additional Informaition</h1>
+
+    <mat-form-field >
+      <mat-label>address</mat-label>
+      <input type="text" matInput formControlName="address"  [errorStateMatcher]="matcher"
+             placeholder="Ex. Elsrya-Egypt">
+      @if (loginForm.get('address')?.hasError('required')) {
+        <mat-error>address is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>age</mat-label>
+      <input type="number" matInput formControlName="age"  [errorStateMatcher]="matcher"
+             placeholder="Ex. 18">
+
+       @if (loginForm.get('age')?.hasError('pattern') && !loginForm.get('age')?.hasError('required')) {
+        <mat-error>must be 2 number</mat-error>
+      }
+
+      @if (loginForm.get('age')?.hasError('required')) {
+        <mat-error>age is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Telephone</mat-label>
+      <input type="tel" matInput placeholder="019-5555-1234"  formControlName="number" [errorStateMatcher]="matcher">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+
+      @if (loginForm.get('number')?.hasError('pattern') && !loginForm.get('number')?.hasError('required')) {
+        <mat-error>enter valid number</mat-error>
+      }
+
+      @if (loginForm.get('number')?.hasError('required')) {
+        <mat-error>number is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+    @if (loginForm.get('roles')?.value != 'parent' ){
+      <mat-form-field>
+        <mat-label>Pokemon</mat-label>
+        <mat-select formControlName="year"  [errorStateMatcher]="matcher">
+          <mat-option>-- None --</mat-option>
+          <!-- @for (group of pokemonGroups; track group) { -->
+            <mat-optgroup label="الاعدادي">
+              <!-- @for (pokemon of group.pokemon; track pokemon) { -->
+                <mat-option value="pokemon.value">pokemon.viewValue</mat-option>
+              <!-- } -->
+            </mat-optgroup>
+          <!-- } -->
+        </mat-select>
+        @if (loginForm.get('year')?.hasError('required')) {
+          <mat-error>year is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+    }
+    @if (loginForm.get('roles')?.value == 'lecturer' ){
+      <mat-form-field class="w-100">
+        <mat-label>specialist</mat-label>
+        <mat-select formControlName="specialist"  [errorStateMatcher]="matcher">
+          <mat-option>-- None --</mat-option>
+          <!-- @for (group of pokemonGroups; track group) { -->
+            <mat-optgroup label="الاعدادي">
+              <!-- @for (pokemon of group.pokemon; track pokemon) { -->
+                <mat-option value="pokemon.value">specialist</mat-option>
+              <!-- } -->
+            </mat-optgroup>
+          <!-- } -->
+        </mat-select>
+        @if (loginForm.get('specialist')?.hasError('required')) {
+          <mat-error>specialist is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+
+    }
+
+
+
+
+
+    <button class="btn btn-success" type="submit" >Register</button>
+  </div>
+
+
+</form>
+
+</section>

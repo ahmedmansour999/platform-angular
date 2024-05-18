@@ -1,0 +1,106 @@
+.nav-container
+{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  background-color: darkslategrey;
+    color: white;
+    box-shadow: 2px 0px 20px 16px #f3f0f0;
+}
+.container-fluid
+{
+  display: flex;
+    flex-wrap: inherit;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.nav-container a
+{
+  color: white;
+}
+
+/* Dropdown */
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dd-button {
+  display: inline-block;
+  border-radius: 4px;
+  padding: 10px 20px 10px 30px;
+  background-color: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  color: white !important;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid rgb(248, 244, 244);
+}
+
+.dd-button:hover {
+  background-color: #201b1b;
+}
+
+
+.dd-input {
+  display: none;
+}
+
+.dd-menu {
+  position: absolute;
+  top: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0;
+  margin: 2px 0 0 0;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+  background-color: darkslategrey;
+  list-style-type: none;
+  z-index: 991;
+}
+
+.dd-input + .dd-menu {
+  display: none;
+}
+
+.dd-input:checked + .dd-menu {
+  display: block;
+}
+
+.dd-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-menu li:hover {
+  background-color: rgb(82, 80, 80);
+}
+
+.dd-menu li a {
+  display: block;
+  margin: -10px -20px;
+  padding: 10px 20px;
+}
+
+.dd-menu li.divider{
+  padding: 0;
+  border-bottom: 1px solid #cccccc;
+}
+.active
+{
+  background-color: rgb(12, 12, 12);
+}

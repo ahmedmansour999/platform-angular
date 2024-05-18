@@ -1,0 +1,28 @@
+
+<div class="d-flex justify-content-end">
+  <a  routerLink="/dash/lecturer/add-course" class="btn btn-warning m-2" > <i class="fas fa-plus mx-1" ></i> new Course  </a>
+</div>
+<div class="card-body row">
+    @for(course of cousers ; track course.id){
+      <div class="col-md-4 p-2 ">
+        <div class="card p-0  " >
+          <div class="icon">
+            <a (click)="delete(course.id)"><i  class="fas fa-trash text-danger"></i></a>
+          </div>
+          <img [src]="'http://127.0.0.1:8000/storage/image/' + course.image"  width="100%" type="image/*" class="card-img-top" alt="...">
+          <div class="card-body">
+            <div class="d-flex flex-row justify-content-between align-items-center py-2" >
+              <h1 class="p-0 m-0" >{{course.course_name}}</h1>
+              <span class="details" >{{ course.price }} Eg</span>
+            </div>
+            <span>{{ course.created_at | date }}</span><br>
+            <span class="details" >{{ course.duration }}</span>
+          </div>
+          <div>
+            <a [routerLink]='["/dash/lecturer/course-content" , course.id]' class="btn btn-success w-50" >show</a>
+            <a [routerLink]='["/dash/lecturer/edit-course" , course.id]' class="btn btn-warning w-50" >edite</a>
+          </div>
+        </div>
+      </div>
+    }
+</div>

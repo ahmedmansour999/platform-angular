@@ -1,0 +1,31 @@
+<section>
+  <div class="title">
+    <p>#lectures</p>
+  </div>
+</section>
+
+
+
+<div class="container">
+  @if (lectures.length == 0) {
+    <h1 class="text-center fw-bold" >No Lecture Yet .. </h1>
+  }@else{
+    @for(lecture of lectures ; track lecture.id){
+      <div class="m-2" >
+        <mat-card class="d-flex flex-row justify-content-between align-items-center" >
+          <mat-card-content class="my-0 py-0" >
+            <a [href]="'http://127.0.0.1:8000/storage/lectures/'+lecture.lectures" target="_blank" > {{ lecture?.title }} </a>
+          </mat-card-content>
+          <mat-card-subtitle>{{ lecture?.lecturer.user.name }}</mat-card-subtitle>
+          <mat-card-subtitle>{{ lecture?.description }}</mat-card-subtitle>
+          <mat-card-subtitle>{{ lecture?.created_at | date }}</mat-card-subtitle>
+
+          <div class="icon me-2">
+            <a [routerLink]="['/dash/lecturer/edit-lecture' , lecture?.id]"><i class="fas fa-pen text-warning mx-2 " ></i></a>
+            <a (click)="delete(lecture?.id)" > <i class="fas fa-trash text-danger mx-2 " ></i></a>
+          </div>
+        </mat-card>
+      </div>
+      }
+  }
+</div>

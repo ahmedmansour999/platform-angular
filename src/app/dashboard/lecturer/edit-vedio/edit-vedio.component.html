@@ -1,0 +1,76 @@
+<div class="card-body">
+  <h1 class="text-center fw-sem-bold">upload Video</h1>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="handleSubmitForm()"
+    method="post"
+    enctype="application/x-www-form-urlencoded"
+  >
+    <div class="pl-lg-4">
+      <div class="w-100 text-center" >
+        @if (url) {
+          <video
+          [src]="url" height="200" controls ></video>
+        }
+        <br />
+      </div>
+      <div class="form-group w-100">
+        <mat-form-field class="example-full-width w-100">
+          <mat-label>title</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="title"
+            [errorStateMatcher]="matcher"
+            placeholder="Math Vedio For Beginner"
+            [value]="vedio?.title"
+          />
+          @if (loginForm != null) {
+            @if (loginForm.get('title')?.hasError('minlength') &&
+            !loginForm.get('title')?.hasError('required')) {
+            <mat-error>min 3 Charachter</mat-error>
+            } @if (loginForm.get('title')?.hasError('required')) {
+            <mat-error>title is <strong>required</strong></mat-error>
+            }
+          }
+        </mat-form-field>
+      </div>
+
+
+      <div class="pl-lg-4">
+        <div class="form-group focused">
+          <label>description</label>
+          <textarea matInput rows="4" [errorStateMatcher]="matcher"
+          [value]="vedio?.description"
+          formControlName="description"  class="form-control form-control-alternative" placeholder="Ex. It makes me feel..."></textarea>
+        </div>
+        @if(loginForm !=null){
+          @if (loginForm.get('description')?.hasError('minlength') &&
+          !loginForm.get('description')?.hasError('required')) {
+          <mat-error>min 15 Charachter</mat-error>
+          } @if (loginForm.get('description')?.hasError('required')) {
+          <mat-error>description is <strong>required</strong></mat-error>
+          }
+        }
+      </div>
+
+
+
+      <div class="form-group w-100">
+        <div class="mt-2">
+          <label for="vedio" class="m-2">Upload Video</label>
+          <input
+            type="file"
+            formControlName="vedio"
+            class="btn w-100"
+            accept="video/*"
+            (change)="onSelectFile($event)"
+          />
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-warning float-end my-3 btn-lg" type="submit">
+      upload
+    </button>
+  </form>
+</div>

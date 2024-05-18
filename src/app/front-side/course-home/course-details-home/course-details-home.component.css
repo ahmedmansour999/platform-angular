@@ -1,0 +1,36 @@
+.list {
+  width: 100%;
+  background-color: #3a3a3a;
+  color: white;
+  height: 100%;
+  overflow: scroll;
+  min-height: 75vh;
+}
+
+
+@media screen and (min-width: 768px) {
+  .list {
+    width: 35%;
+  }
+}
+
+.item {
+  padding: 10px;
+}
+
+.title {
+  padding: 10px;
+}
+
+.order {
+  align-items: center;
+  display: flex;
+}
+
+.img {
+  max-height: 70px;
+}
+
+.selected-container {
+  min-height: 75%;
+}

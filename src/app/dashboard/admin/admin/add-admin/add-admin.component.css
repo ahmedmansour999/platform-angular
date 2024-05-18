@@ -1,0 +1,18 @@
+.errorMsg
+{
+  color : red ;
+}
+.title
+{
+  padding-left: 30px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  box-shadow: -1px 7px 5px 1px #0000008c;
+
+}
+.title p
+{
+  font-size: 3rem;
+  padding: 5px;
+
+}

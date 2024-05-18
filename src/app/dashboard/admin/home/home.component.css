@@ -1,0 +1,50 @@
+.title
+{
+  padding-left: 30px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  box-shadow: -1px 7px 5px 1px #0000008c;
+
+}
+.title p
+{
+  font-size: 3rem;
+  padding: 5px;
+
+}
+
+.body
+{
+  width: 100%;
+}
+
+.card
+{
+  display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 20px;
+    min-width: 180px;
+    background-color: black;
+    color: gold;
+    box-shadow: 1px 1px 1px 1px gold;
+    cursor: pointer;
+}
+.card:hover
+{
+  background-color: gold;
+  color: black;
+  box-shadow: 2px 2px 2px 2px black;
+
+}
+.card span
+{
+  font-size: 3rem;
+}
+.card p
+{
+  font-size: 2rem;
+  margin: 0;
+  padding: 15px 5px;
+}

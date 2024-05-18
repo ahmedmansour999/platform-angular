@@ -1,0 +1,23 @@
+
+<div class="m-2 d-flex justify-content-end " >
+  <a routerLink="/dash/lecturer/add-lecture" class="btn btn-warning  " > <i class="fas fa-plus"></i> New Lectuer  </a>
+</div>
+
+@for(lecture of lectures ; track lecture.id){
+<div class="m-2" >
+  <mat-card>
+    <mat-card-content>
+      <a [href]="'http://127.0.0.1:8000/storage/lectures/'+lecture.lectures" target="_blank" > {{ lecture?.title }} </a>
+    </mat-card-content>
+    <mat-card-subtitle>{{ lecture?.description }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ lecture?.created_at | date }}</mat-card-subtitle>
+
+    <div class="icon me-2">
+      <a [routerLink]="['/dash/lecturer/edit-lecture' , lecture?.id]"><i class="fas fa-pen text-warning mx-2 " ></i></a>
+      <a (click)="delete(lecture?.id)" > <i class="fas fa-trash text-danger mx-2 " ></i></a>
+    </div>
+  </mat-card>
+</div>
+}
+
+

@@ -1,0 +1,36 @@
+section
+{
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+form
+{
+  width: 50%;
+  margin-top: 10%;
+  padding: 20px;
+  box-shadow: 1px 1px 6px 4px rgb(194, 181, 163);
+}
+.example-full-width
+{
+  width: 100%;
+
+}
+
+.container
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container input
+{
+  background-color: transparent !important;
+}
+

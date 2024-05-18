@@ -1,0 +1,49 @@
+
+<section>
+  <h1 class="px-5 fw-bold" > New Courses </h1>
+
+  <div class="row">
+    @for(course of courses ; track course.id){
+
+    <div class="col-md-4 col-lg-3 mb-3">
+      <div class="container">
+        <div class="card">
+          <div class="card-head">
+            <img
+              width="100%"
+              height="100%"
+              class="box-image"
+              [src]="'http://127.0.0.1:8000/storage/image/' + course.image"
+              alt="Course Img"
+            />
+          </div>
+
+          <div class="card-body" [routerLink]="['/site/course-details' , course.id]" >
+            <h2 class="box-title">{{course.course_name}}</h2>
+            <div class="body-details" >
+              <p class="user-follow-info ms-4 text-nowrap m-0">
+                {{course.price}} EG
+              </p>
+              <p class="duration m-0">{{course.duration}} days </p>
+            </div>
+          </div>
+          <div class="btn text-nowrap d-flex justify-content-between p-0">
+
+            @if ( carts?.length == 0 ) {
+              <button (click)="AddToCart(course.id)" class=" w-50 button border-0 btn btn-outline-warning text-dark"><i class="fa-solid fa-heart  "></i> Like</button>
+            }@else {
+              @for( cart of carts ; track cart.id ){
+                @if ( cart.user_id == user_id && cart.course_id == course.id ) {
+                  <button (click)="removeFromCart(cart.id)" class=" w-50 button border-0 btn btn-outline-warning text-dark"><i class="fa-solid fa-heart text-danger "></i> UnLike</button>
+                }
+              }
+            }
+
+            <button href="#" class=" w-50 button border-0 btn btn-outline-warning text-dark"><i class="fa-solid fa-cart-shopping"></i> Buy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,14 @@
+.items
+{
+    border: 5px solid black;
+    padding: 7px;
+}
+.pdfImage
+{
+  max-height: 18vh;
+}
+
+.pointer
+{
+  cursor: pointer;
+}

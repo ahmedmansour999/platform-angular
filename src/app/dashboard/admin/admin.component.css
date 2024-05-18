@@ -1,0 +1,66 @@
+.rightSide
+{
+  width:-webkit-fill-available !important ;
+}
+section {
+  display: flex;
+  height: 100%;
+  background-color: white;
+}
+
+.sidemenuContainer {
+  background-color: black;
+  height: 100%;
+  width: 80px;
+  overflow: hidden;
+  transition: width .8s ease-in-out;
+  z-index: 99;
+  position: fixed;
+}
+
+
+.sidemenuContainer:hover {
+  width: 280px;
+}
+
+
+.sidemenuContainer ul {
+  margin-top: 40px;
+  padding: 0 0 0 13px;
+}
+
+
+
+ul li {
+  padding: 20px 10px;
+  list-style: none;
+  font-size: 25px;
+  color: white;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+ul li:hover
+{
+  background-color: #e8dfdf5c;
+}
+
+.list_title
+{
+  padding: 0 80px;
+  margin: 0;
+}
+.rightSide
+{
+  position: absolute;
+  width: 100%;
+  margin-left: 80px;
+  padding-top: 40px;
+}
+
+.notpointer
+{
+  cursor:none ;
+}

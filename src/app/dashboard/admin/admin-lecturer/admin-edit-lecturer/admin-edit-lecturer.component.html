@@ -1,0 +1,247 @@
+<div class="container">
+  <div class="card-header bg-white border-0 ">
+    <div class="row align-items-center">
+      <div class="col-8">
+        <h3 class="mb-0">My account</h3>
+      </div>
+      <div class="col-4 text-right">
+        <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+
+
+    <form  [formGroup]="loginForm"  (ngSubmit)="handleSubmitForm()"  method="post" >
+      <h6 class="heading-small text-muted mb-4">User information</h6>
+
+      <div class="pl-lg-4">
+
+        <div class="row w-100">
+          <div class="col-lg-12">
+
+            <div class="form-group w-100">
+              <mat-form-field class="example-full-width w-100">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="email"  [errorStateMatcher]="matcher"
+                       placeholder="Ex. pat@example.com"  [value]="lecturer?.user.email " >
+                @if (loginForm.get('email')?.hasError('email') && !loginForm.get('email')?.hasError('required')) {
+                  <mat-error>Please enter a valid email address</mat-error>
+                }
+                @if (loginForm.get('email')?.hasError('required')) {
+                  <mat-error>Email is <strong>required</strong></mat-error>
+                }
+              </mat-form-field>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row w-100">
+          <div class="col-lg-12">
+
+            <div class="form-group w-100">
+              <mat-form-field class="example-full-width w-100">
+                <mat-label>name</mat-label>
+                <input type="text" matInput formControlName="name"  [errorStateMatcher]="matcher"
+                       placeholder="Ex. Gamal Yasser" [value]=" lecturer?.user.name ">
+                @if (loginForm.get('name')?.hasError('pattern')  && !loginForm.get('name')?.hasError('required')) {
+                  <mat-error class="text-nowrap" >Please enter a valid name "Ex. Gamal Yasser"</mat-error>
+                }
+                @if (loginForm.get('name')?.hasError('required')) {
+                  <mat-error>Name is <strong>required</strong></mat-error>
+                }
+              </mat-form-field>
+            </div>
+
+          </div>
+        </div>
+        
+        <div class="row w-100">
+          <div class="col-lg-12">
+
+            <div class="form-group w-100">
+              <mat-form-field class="example-full-width w-100" >
+                <mat-label>password</mat-label>
+                <input type="password" matInput formControlName="password" [value]="lecturer?.user.password "  [errorStateMatcher]="matcher" title="password" >
+                <mat-hint>Errors appear instantly!</mat-hint>
+                <!-- @if (loginForm.get('password')?.hasError('pattern') && !loginForm.get('password')?.hasError('required')) {
+                  <mat-error>must be 6 char at Least one uppercase letter, one special char</mat-error>
+                } -->
+                @if (loginForm.get('password')?.hasError('required')) {
+                  <mat-error>password is <strong>required</strong></mat-error>
+                }
+              </mat-form-field>
+            </div>
+
+          </div>
+        </div>
+        <div class="row w-100">
+          <div class="col-lg-12">
+
+            <div class="form-group w-100">
+              <div class="mt-2">
+                <label for="image" class="m-2">Profile Image</label>
+                <input type="file" formControlName="image" class="btn w-100 " placeholder="Img" >
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+      <hr class="my-4">
+      <!-- Address -->
+      <h6 class="heading-small text-muted mb-4">Additional information</h6>
+      <div class="pl-lg-4">
+
+        <div class="row w-100">
+          <div class="col-12 col-lg-6">
+
+            <div class="form-group w-100">
+              <mat-form-field class="example-full-width w-100">
+                <mat-label>age</mat-label>
+                <input type="number" matInput formControlName="age" [value]=" lecturer?.user.age " [errorStateMatcher]="matcher"
+                       placeholder="Ex. 18">
+
+                 @if (loginForm.get('age')?.hasError('pattern') && !loginForm.get('age')?.hasError('required')) {
+                  <mat-error>must be 2 number</mat-error>
+                }
+
+                @if (loginForm.get('age')?.hasError('required')) {
+                  <mat-error>age is <strong>required</strong></mat-error>
+                }
+              </mat-form-field>
+            </div>
+
+          </div>
+          <div class="col-12 col-lg-6">
+
+            <div class="form-group w-100">
+              <mat-form-field class="example-full-width w-100">
+                <mat-label>Telephone</mat-label>
+                <input type="tel" matInput placeholder="019-5555-1234"  [value]="lecturer?.user.number " formControlName="number" [errorStateMatcher]="matcher">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+
+                @if (loginForm.get('number')?.hasError('pattern') && !loginForm.get('number')?.hasError('required')) {
+                  <mat-error>enter valid number</mat-error>
+                }
+
+                @if (loginForm.get('number')?.hasError('required')) {
+                  <mat-error>number is <strong>required</strong></mat-error>
+                }
+              </mat-form-field>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row w-100">
+          <div class=" col-12 col-lg-6">
+            <div class="form-group w-100">
+              <mat-form-field class="w-100">
+                <mat-label>Pokemon</mat-label>
+                <mat-select formControlName="year"  [errorStateMatcher]="matcher">
+                  <mat-option>-- None --</mat-option>
+                  <!-- @for (group of pokemonGroups; track group) { -->
+                    <mat-optgroup label="الاعدادي">
+                      <!-- @for (pokemon of group.pokemon; track pokemon) { -->
+
+                        <mat-option value="pokemon.value">pokemon.viewValue</mat-option>
+                      <!-- } -->
+                    </mat-optgroup>
+                  <!-- } -->
+                </mat-select>
+                @if (loginForm.get('year')?.hasError('required')) {
+                  <mat-error>year is <strong>required</strong></mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+
+            <div class="form-group w-100">
+              <mat-form-field class="example-full-width w-100">
+                <mat-label>graduate</mat-label>
+                <input type="text" matInput placeholder="Engineering Faculty" [value]=" lecturer?.user.graduate "  formControlName="graduate" [errorStateMatcher]="matcher">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+
+                @if (loginForm.get('graduate')?.hasError('pattern')) {
+                  <mat-error>enter valid graduate</mat-error>
+                }
+                @if (loginForm.get('graduate')?.hasError('maxlength')) {
+                  <mat-error>max  30 char</mat-error>
+                }
+
+
+              </mat-form-field>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="row w-100">
+          <div class="col-12 col-lg-6">
+
+            <div class="form-group w-100">
+              <mat-form-field class="w-100">
+                <mat-label>specialist</mat-label>
+                <mat-select formControlName="specialist"  [errorStateMatcher]="matcher">
+                  <mat-option>-- None --</mat-option>
+                  <!-- @for (group of pokemonGroups; track group) { -->
+                    <mat-optgroup label="الاعدادي">
+                      <!-- @for (pokemon of group.pokemon; track pokemon) { -->
+                        <mat-option value="pokemon.value">specialist</mat-option>
+                      <!-- } -->
+                    </mat-optgroup>
+                  <!-- } -->
+                </mat-select>
+                @if (loginForm.get('specialist')?.hasError('required')) {
+                  <mat-error>specialist is <strong>required</strong></mat-error>
+                }
+              </mat-form-field>
+            </div>
+
+          </div>
+          <div class="col-12 col-lg-6">
+
+            <div class="form-group w-100">
+
+              <mat-form-field class="w-100" >
+                <mat-label>address</mat-label>
+                <input type="text" matInput formControlName="address"  [value]="lecturer?.user.address " [errorStateMatcher]="matcher"
+                       placeholder="Ex. Elsrya-Egypt">
+                @if (loginForm.get('address')?.hasError('required')) {
+                  <mat-error>address is <strong>required</strong></mat-error>
+                }
+              </mat-form-field>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+      <hr class="my-4">
+      <!-- Description -->
+      <h6 class="heading-small text-muted mb-4">About me</h6>
+      <div class="pl-lg-4">
+        <div class="form-group focused">
+          <label>About Me</label>
+          <textarea matInput rows="4" formControlName="about" [value]="lecturer?.user.about " class="form-control form-control-alternative" placeholder="Ex. It makes me feel..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-warning float-end my-3" > Update</button>
+    </form>
+  </div>
+
+</div>

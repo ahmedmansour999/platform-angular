@@ -1,0 +1,35 @@
+/* .video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+} */
+
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  height: 100%;
+}
+
+.vedio-container {
+  width: 100%;
+  padding: 10px 0 ;
+  background-color: lightgrey;
+  position: relative;
+}
+
+.vedio-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-icon
+{
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  cursor: pointer;
+  font-size: large;
+  color: rgb(153, 153, 22);
+}

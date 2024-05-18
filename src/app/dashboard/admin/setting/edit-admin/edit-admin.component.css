@@ -1,0 +1,9 @@
+.inputContainer
+{
+  margin: 20px 0;
+}
+.errorMsg
+{
+  font-size: 13px;
+  color: red;
+}

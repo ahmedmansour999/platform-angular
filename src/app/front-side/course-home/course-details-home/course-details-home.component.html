@@ -1,0 +1,86 @@
+<section class=" show-content d-md-flex">
+  <div class="show w-100 p-2">
+    @if (url) { @if (ext != 'pdf') {
+      <div class="selected-container ">
+        <video controls width="100%">
+          <source
+            [src]="'http://127.0.0.1:8000/storage/vedio/' + url"
+            width="100%"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    }@else if(ext == 'pdf') {
+    <div class="selected-container bg-dark d-flex w-100 justify-content-center">
+      <a
+        [href]="'http://127.0.0.1:8000/storage/lectures/' + url"
+        title="pdfView"
+        class="btn btn-success m-auto"
+        target="_blank"
+        >open lecture</a
+      >
+    </div>
+    } }@else {
+      <div class="selected-container bg-dark text-white  d-flex w-100 justify-content-center flex-column align-items-center">
+        <p class="fs-1 pb-2" >Select</p>
+        <p class=" fs-1 " >
+           Lecture <i class="fa-solid fa-file  text-danger "></i> or Video <i class="fa-solid fa-video text-warning "></i>
+        </p>
+      </div>
+    }
+    <div class="details m-3">
+
+    <h1 class="fw-bold text-nowrap" >Course Name : <span  >{{ course?.course_name }}</span></h1>
+    <h1 class="fw-bold text-nowrap" >Course Duration : <span  >{{ course?.duration }} H</span> </h1>
+    </div>
+
+  </div>
+
+  <div class="list pt-4">
+    <div class="items">
+      @for(content of contents ; track content.id){
+          <div class="item row text-nowrap ">
+          @if(content?.content_type =='video') {
+        <span class="col-1 order "> {{ content.order }} </span>
+        <div class="img col-6 text-nowrap p-0">
+          <video
+            height="100%"
+            width="100%"
+            (click)="onSelectFile('video', content.vedio.vedio)">
+            <source
+              [src]="
+                'http://127.0.0.1:8000/storage/vedio/' + content.vedio.vedio
+              "
+              width="100%"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <div class="title col-3 p-0">
+          <span class="title" >{{ content.vedio.title }}</span>
+        </div>
+
+        } @else if(content?.content_type == 'lecture') {
+          <span class="col-1 order "> {{ content.order }} </span>
+
+        <div class="img pdfImage col-6 text-nowrap p-0">
+          <img
+            height="100%"
+            class="pdfImage"
+            (click)="onSelectFile('lecture', content.lecture.lectures)"
+            src="https://play-lh.googleusercontent.com/9XKD5S7rwQ6FiPXSyp9SzLXfIue88ntf9sJ9K250IuHTL7pmn2-ZB0sngAX4A2Bw4w=w240-h480-rw"
+            width="100%"
+            style="object-fit: contain"
+            alt=""
+          />
+        </div>
+        <div class="title col-3 p-0">
+          <span class="title" >{{ content.lecture.title }}</span> <br />
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>
+</section>
+

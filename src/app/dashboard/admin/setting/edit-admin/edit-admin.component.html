@@ -1,0 +1,70 @@
+<div class="container">
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div class="inputContainer">
+      <div >
+        <label class="form-label"    for="name">Name:</label>
+        <input class="form-control"    type="text" id="name" formControlName="name" />
+      </div>
+      @if (checkoutForm.get('name')?.hasError('minlength') &&
+      !checkoutForm.get('name')?.hasError('required') ) {
+      <p class="errorMsg">Minimum length is 3 characters</p>
+      }@else if (checkoutForm.get('name')?.hasError('required')) {
+      <p class="errorMsg">name is required</p>
+      }
+    </div>
+    <div class="inputContainer">
+      <div>
+        <label class="form-label" for="email">Email:</label>
+        <input class="form-control" type="text" id="email" formControlName="email" />
+      </div>
+      @if (checkoutForm.get('email')?.hasError('email') &&
+      !checkoutForm.get('email')?.hasError('required') ) {
+      <p class="errorMsg">Email is not valid</p>
+      }@else if (checkoutForm.get('email')?.hasError('required')) {
+      <p class="errorMsg">email is required</p>
+      }
+    </div>
+    <div class="inputContainer">
+      <div>
+        <label class="form-label" for="password">password:</label>
+        <input class="form-control" type="password" id="password" formControlName="password" />
+      </div>
+      @if (checkoutForm.get('password')?.hasError('minlength') &&
+      !checkoutForm.get('password')?.hasError('required') ) {
+      <p class="errorMsg">password is not valid</p>
+      }@else if (checkoutForm.get('password')?.hasError('required')) {
+      <p class="errorMsg">password is required</p>
+      }
+    </div>
+    <div class="inputContainer">
+      <div >
+        <label class="form-label" for="age">age:</label>
+        <input class="form-control" type="number" id="age" formControlName="age" />
+      </div>
+      @if (checkoutForm.get('age')?.hasError('required')) {
+      <p class="errorMsg">age is required</p>
+      }
+    </div>
+    <div class="inputContainer">
+      <div>
+        <label class="form-label" for="address">address:</label>
+        <input class="form-control" type="text" id="address" formControlName="address" />
+      </div>
+      @if (checkoutForm.get('address')?.hasError('required')) {
+      <p class="errorMsg">address is required</p>
+      }
+    </div>
+    <div class="inputContainer">
+      <div>
+        <label class="form-label" for="number">number:</label>
+        <input class="form-control" type="number" id="number" formControlName="number" />
+      </div>
+      @if (checkoutForm.get('number')?.hasError('required')) {
+      <p class="errorMsg">number is required</p>
+      }
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary float-end " [disabled]="!checkoutForm.valid">Update</button>
+  </form>
+</div>

@@ -1,0 +1,53 @@
+
+  <div class="main-content">
+    <!-- Top navbar -->
+
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(https://raw.githubusercontent.com/creativetimofficial/argon-dashboard/gh-pages/assets-old/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+      <span class="mask bg-gradient-default opacity-8"></span>
+      <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+          <div class="col-lg-7 col-md-10">
+            <h1 class="display-2 text-white">Hello Jesse</h1>
+            <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+            <a routerLink="/dash/lecturer" class="btn btn-info">Edit profile</a>
+            <a routerLink="/dash/lecturer/contact" class="btn btn-info">Contact</a>
+            <a routerLink="/dash/lecturer/vedio" class="btn btn-info">vedio</a>
+            <a routerLink="/dash/lecturer/lecture" class="btn btn-info">lecture</a>
+            <a routerLink="/dash/lecturer/courses" class="btn btn-info">courses</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+
+        <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+          <app-profile/>
+        </div>
+
+
+        <div class="col-xl-8 order-xl-1">
+
+          <div class="card bg-secondary shadow">
+
+            <router-outlet></router-outlet>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <footer class="footer">
+    <div class="row align-items-center justify-content-xl-between">
+      <div class="col-xl-6 m-auto text-center">
+        <div class="copyright">
+          <p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Argon Dashboard</a> by Creative Tim</p>
+        </div>
+      </div>
+    </div>
+  </footer>

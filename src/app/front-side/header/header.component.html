@@ -1,0 +1,93 @@
+<nav class="navbar navbar-expand-lg py-3 w-100 nav-container">
+  <div class="container-fluid px-5 m-auto">
+    <button
+      class="navbar-toggler text-light bg-light mt-1"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon text-light"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        @if (userToken != null) { @if(userToken.role != 'lecturer'){
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dash/lecturer"> مرحبا </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="cursor: pointer" (click)="logout()">
+            تسجيل الخروج
+          </a>
+        </li>
+        }@else if (userToken.role == 'lecturer') {
+        <label class="dropdown">
+          <div class="dd-button">مرحبا</div>
+          <input type="checkbox" class="dd-input" id="test" />
+          <ul class="dd-menu">
+            <li routerLink="/dash/lecturer" routerLinkActive="active">
+              الصفحه الشخصيه
+            </li>
+            <li routerLinkActive="active">الفيديوهات</li>
+            <li routerLinkActive="active"  >المحاضرات</li>
+            <li routerLinkActive="active">الكورسات</li>
+            <li routerLinkActive="active">الاعدادت</li>
+            <li routerLinkActive="active" class="divider"></li>
+            <li routerLinkActive="active">
+              <a class="nav-link" style="cursor: pointer" (click)="logout()">
+                تسجيل الخروج
+              </a>
+            </li>
+          </ul>
+        </label>
+        }
+      }@else{
+        <li class="nav-item">
+          <a class="nav-link text-nowrap" routerLink="/login"> تسجيل الدخول </a>
+        </li>
+        }
+      </ul>
+      <ul class="navbar-nav m-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link text-nowrap"
+            routerLinkActive="active"
+            aria-current="page"
+            href="#"
+            >الصفحه الرئيسيه</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-nowrap" routerLinkActive="active" href="#"
+            >الدروس
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-nowrap" routerLinkActive="active" routerLink="/site/studentProfile"
+            >الملف الشخصي</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-nowrap" routerLinkActive="active" routerLink="/site/cart"
+            > Cart </a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link disabled"
+            routerLinkActive="active"
+            aria-disabled="true"
+            >المحاضريين</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="brand mx-5">
+    <a class="navbar-brand m-0 p-2 fw-bold fs-1" href="#">المنصه</a>
+  </div>
+</nav>

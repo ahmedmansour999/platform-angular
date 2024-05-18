@@ -1,0 +1,51 @@
+/* Change background color on hover */
+mat-button-toggle:hover {
+  background-color: gold;
+}
+mat-button-toggle-group{
+  border: none !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-around;
+}
+mat-button-toggle.mat-button-toggle-checked {
+  background-color: gold;
+}
+body
+{
+  height: 100%;
+}
+section
+{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.register
+{
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #6c6a6a  ;
+}
+form
+{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: auto   ;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.container
+{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 1px 1px 6px 4px rgb(194, 181, 163);
+  margin: 0 10px;
+}
+

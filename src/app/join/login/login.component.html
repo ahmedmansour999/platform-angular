@@ -1,0 +1,38 @@
+
+<section class="d-sm-flex flex-sm-column" >
+
+  <form action="" [formGroup]="loginForm" (ngSubmit)="handleSubmitForm()">
+    <h1>Login</h1>
+    <div class="container user-role text-center">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email"  [errorStateMatcher]="matcher"
+               placeholder="Ex. pat@example.com">
+        @if (loginForm.get('email')?.hasError('email') && !loginForm.get('email')?.hasError('required')) {
+          <mat-error>Please enter a valid email address</mat-error>
+        }
+        @if (loginForm.get('email')?.hasError('required')) {
+          <mat-error>Email is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>password</mat-label>
+        <input type="password" matInput formControlName="password"   [errorStateMatcher]="matcher" title="password" >
+        <mat-hint>Errors appear instantly!</mat-hint>
+        @if (loginForm.get('password')?.hasError('required')) {
+          <mat-error>password is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+
+
+    </div>
+    <button class="btn btn-primary btn-lg mt-4 float-end" type="submit" > Login </button>
+
+  </form>
+  <div class="register mt-3">
+    <span>dont have account</span>
+    <a routerLink="/register" > Register</a>
+  </div>
+</section>

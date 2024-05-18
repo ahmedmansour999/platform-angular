@@ -1,0 +1,67 @@
+
+<section>
+  <div class="title">
+    <p>#  Course [ {{courseContent.length}} Content ]</p>
+  </div>
+</section>
+
+
+<div class="container">
+
+  @if (courseContent.length == '0') {
+    <h1 class="text-center" >No Content Yet ... </h1>
+  }@else {
+    <section>
+
+
+      <div class="show w-100 p-2">
+
+        @if (url) {
+          @if (ext != 'pdf') {
+            <video controls width="100%"  > <source [src]="'http://127.0.0.1:8000/storage/vedio/' + url" width="100%" type="video/mp4"/> </video>
+          }@else {
+            <div class="showPdf d-flex w-100 justify-content-center ">
+              <a [href]="'http://127.0.0.1:8000/storage/lectures/'+url" title="pdfView" class="btn btn-success m-auto" target="_blank"   >open lecture</a>
+
+            </div>
+          }
+        }
+      </div>
+
+      <div class="list">
+        <div class="items">
+          <div class="item row">
+            @for(content of courseContent ; track content.id){
+            @if(content?.content_type == 'video') {
+            <div class="img col-4">
+              <video controls width="100%" (click)="onSelectFile('video' , content.vedio.vedio )" > <source [src]="'http://127.0.0.1:8000/storage/vedio/' + content.vedio.vedio" width="100%"  type="video/mp4"/>
+              </video>
+            </div>
+            <div class="title col-8">
+              <h1>{{ content.vedio.title }}</h1>
+              <span>{{ content.vedio.description }}</span>
+              <div class="icon float-end">
+                <a (click)="delete(content.id)" class="pointer" > <i class="fas fa-trash mx-2 text-danger"></i> </a>
+              </div>
+            </div>
+
+            } @else if(content?.content_type == 'lecture') {
+              <div class="img pdfImage col-4">
+                <img class="pdfImage" (click)="onSelectFile('lecture' , content.lecture.lectures)"  src="https://play-lh.googleusercontent.com/9XKD5S7rwQ6FiPXSyp9SzLXfIue88ntf9sJ9K250IuHTL7pmn2-ZB0sngAX4A2Bw4w=w240-h480-rw" width="100%" style="object-fit: contain;"  alt="">
+              </div>
+              <div class="title col-8">
+                <h1>{{ content.lecture.title }}</h1> <br>
+                <span>{{ content.lecture.description }}</span>
+                <div class="icon float-end">
+                  <a (click)="delete(content.id)" class="pointer" > <i class="fas fa-trash mx-2 text-danger"></i> </a>
+                </div>
+              </div>
+            } }
+          </div>
+        </div>
+      </div>
+
+    </section>
+  }
+
+</div>

@@ -1,0 +1,46 @@
+mat-button-toggle:hover {
+  background-color: gold;
+}
+mat-button-toggle {
+  width: 50%;
+  margin: 3px;
+  box-shadow: 1px 1px 3px 1px gainsboro;
+
+}
+mat-button-toggle-group{
+  border: none !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: transparent;
+  box-shadow: none !important;
+}
+mat-button-toggle.mat-button-toggle-checked {
+  background-color: gold;
+}
+.mat-option {
+  display: flex;
+  align-items: center;
+}
+
+.mat-option img {
+  width: 100%;
+}
+.col-2
+{
+  min-width: 10rem !important ;
+  max-height: 13vh;
+
+}
+.matCard-pdf
+{
+  max-height: 13vh;
+  overflow: hidden;
+}
+
+.selectHover:hover
+{
+  border-bottom: 2px solid red;
+}

@@ -1,0 +1,17 @@
+
+mat-card
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+mat-card-content
+{
+  padding: 16px !important;
+}
+
+a
+{
+  cursor: pointer;
+}
