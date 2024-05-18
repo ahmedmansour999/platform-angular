@@ -1,0 +1,21 @@
+.course
+{
+  max-height: 100px ;
+  width: 100%;
+}
+.img
+{
+  width: 100px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+img
+{
+  object-fit: contain;
+  min-width: 100px;
+}
+.details
+{
+  padding: 0 20px;
+
+}
